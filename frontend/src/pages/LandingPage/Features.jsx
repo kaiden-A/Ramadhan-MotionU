@@ -82,7 +82,7 @@ function Features() {
             <div className="md:w-2/3">
               <h3 className="text-2xl font-bold text-deep-blue mb-4">Enhance Your Ramadhan Experience</h3>
               <p className="text-slate-600 mb-6">
-                Motion-U is designed to help you make the most of the holy month. With personalized tracking, daily insights, and community features, you'll find it easier to stay focused on your spiritual goals.
+                Motion-U is inspired to help you make the most of the holy month. With personalized tracking, daily insights, and community features, you'll find it easier to stay focused on your spiritual goals.
               </p>
               <ul className="space-y-3">
                 {[

@@ -7,6 +7,6 @@ export const create_beta_users = catchAsync(async (req , res) => {
 
     await usersServices.createBetaUsers(email);
 
-    return res.status(204).json({success : true , message : 'successfully create users'});
+    return res.status(201).json({success : true , message : 'successfully create users'});
 
 })
