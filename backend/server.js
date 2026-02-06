@@ -19,6 +19,10 @@ app.use(cors({
 
 const PORT = process.env.PORT || 5000;
 
+app.get('/' , (req , res) => {
+    res.json({success : true , message : 'hello from backend'});
+})
+
 app.use('/api' , usersRoutes);
 app.use(errorHandler);
 
