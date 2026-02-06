@@ -13,6 +13,7 @@ export default async function handler(req , res){
 
     }catch(err){
         console.error(err.response?.data || err.message);
+        res.status(500).json({success : false , message : 'Internal Server Error'})
     }
 
 }
