@@ -1,14 +1,11 @@
-import { useNavigate } from "react-router-dom";
 
 
 function Header(){
 
-    const navigate = useNavigate();
-
     return(
-        <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-blue-100">
-            <div className="flex items-center p-4 justify-between max-w-6xl mx-auto">
-                <div className="flex items-center">
+        <>
+        <header className="sticky top-0 z-50 flex items-center bg-white/90 backdrop-blur-md p-4 justify-between border-b border-gray-100">
+            <div className="flex items-center gap-3">
                     {/* Logo Container */}
                     <div className="logo-container size-10 rounded-xl shadow-lg mr-3 transition-all duration-500 overflow-hidden flex items-center justify-center bg-white">
                         <img 
@@ -22,12 +19,15 @@ function Header(){
                     <h2 className="text-deep-blue text-lg font-bold leading-tight tracking-[-0.015em]">
                         Motion-U
                     </h2>
-                </div>
-                <button onClick={() => navigate('/dashboard')} className="notify-button bg-primary text-white hover:cursor-pointer px-5 py-2.5 rounded-xl text-sm font-bold shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/30 transition-all duration-300">
-                    Join Waitlist
+            </div>
+            
+            <div className="flex items-center gap-2">
+                <button id="loginBtn" className="flex cursor-pointer items-center justify-center rounded-full size-10 bg-transparent text-[#111418] transition-colors hover:bg-gray-100">
+                    <span className="material-symbols-outlined">account_circle</span>
                 </button>
             </div>
         </header>
+        </>
     )
 
 }

@@ -1,30 +1,38 @@
 @import "tailwindcss";
 
 @theme {
-  /* Colors */
+  /* --- Colors --- */
   --color-primary: #137fec;
   --color-deep-blue: #0f2d4e;
   --color-soft-blue: #eef6ff;
   --color-background-start: #ffffff;
   --color-background-end: #dceeff;
   --color-accent: #ff9d42;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
 
-  /* Fonts */
+  /* --- Fonts --- */
   --font-display: "Plus Jakarta Sans", sans-serif;
 
-  /* Border Radius */
+  /* --- Border Radius --- */
   --radius-default: 0.25rem;
   --radius-lg: 0.5rem;
   --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
   --radius-full: 9999px;
 
-  /* Animations */
-  --animation-float: float 6s ease-in-out infinite;
-  --animation-pulse-slow: pulse 3s ease-in-out infinite;
-  --animation-fade-in: fadeIn 1s ease-out forwards;
-  --animation-slide-up: slideUp 0.8s ease-out forwards;
+  /* --- Animations (Renamed to --animate-* for v4 auto-generation) --- */
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulse 3s ease-in-out infinite;
+  --animate-fade-in: fadeIn 0.3s ease-out forwards;
+  --animate-slide-up: slideUp 0.4s ease-out forwards;
+  --animate-slide-left: slideLeft 0.4s ease-out forwards;
+  --animate-modal-fade-in: modalFadeIn 0.3s ease-out forwards;
+  --animate-bounce-slow: bounce 2s infinite;
+  --animate-spin-slow: spin 3s linear infinite;
 
-  /* Keyframes */
+  /* --- Keyframes --- */
   @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-20px); }
@@ -37,33 +45,71 @@
     0% { transform: translateY(30px); opacity: 0; }
     100% { transform: translateY(0); opacity: 1; }
   }
+  @keyframes slideLeft {
+    0% { transform: translateX(30px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+  }
+  @keyframes modalFadeIn {
+    0% { opacity: 0; transform: translateY(-20px) scale(0.95); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
 }
 
 @layer base {
   body {
     font-family: var(--font-display);
-    @apply text-deep-blue;
+    min-height: 100dvh;
+    @apply text-deep-blue bg-linear-to-br from-background-start to-background-end bg-fixed;
   }
 }
 
-/* Complex utility components */
 @layer components {
-  .gradient-bg {
-    @apply bg-linear-to-br from-background-start to-background-end bg-fixed;
+  /* Layout Containers */
+  .app-container {
+    @apply max-w-[1200px] mx-auto p-4 md:p-8 grid gap-8 md:grid-cols-2 lg:grid-cols-[1.2fr_0.8fr] lg:py-12;
   }
 
-  .geometric-bg {
-    background-image: var(--background-image-geometric);
-    background-size: 24px 24px;
+  /* Grid Systems */
+  .juzu-grid, .hadith-previous-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4;
   }
 
+  /* Logo & Decoration */
   .logo-container {
     @apply flex items-center justify-center border-3 border-white shadow-[0_10px_30px_rgba(19,127,236,0.3)];
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-deep-blue) 100%);
   }
+
+  /* Buttons */
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 
+           hover:bg-[#0d6fd8] hover:-translate-y-0.5 hover:shadow-[0_10px_25px_rgba(19,127,236,0.2)] active:scale-95;
+  }
+
+  .btn-outline {
+    @apply bg-transparent text-primary px-6 py-3 rounded-xl font-semibold border-2 border-primary 
+           transition-all duration-300 hover:bg-primary/10 hover:-translate-y-0.5 active:scale-95;
+  }
+
+  /* Form Elements */
+  .input-field {
+    @apply w-full px-4 py-3 border-2 border-gray-200 rounded-xl text-sm transition-all duration-300 
+           focus:outline-none focus:border-primary focus:ring-3 focus:ring-primary/10;
+  }
+
+  /* Cards */
+  .juzu-card {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_35px_rgba(19,127,236,0.15)];
+  }
+
+  .hadith-card {
+    @apply cursor-pointer transition-all duration-300 hover:-translate-y-1 
+           hover:shadow-[0_10px_25px_rgba(19,127,236,0.15)] hover:border-primary/25;
+  }
 }
 
 @layer utilities {
+
   .animate-on-scroll {
     @apply opacity-0 translate-y-8 transition-all duration-800 ease-out;
   }
