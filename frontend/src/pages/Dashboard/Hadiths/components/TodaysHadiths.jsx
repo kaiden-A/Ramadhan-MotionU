@@ -1,12 +1,12 @@
 
 
 
-function TodaysHadiths(){
+function TodaysHadiths({open}){
 
     return(
         <>
 
-            <div className="hadith-card bg-white rounded-2xl p-4 sm:p-6 shadow-lg border border-primary/20 relative overflow-hidden transition-all duration-300 animate-on-scroll visible">
+            <div onClick={open} className="hadith-card bg-white rounded-2xl p-4 sm:p-6 shadow-lg border border-primary/20 relative overflow-hidden transition-all duration-300 animate-on-scroll visible">
                 <div className="absolute -top-4 -right-4 size-20 sm:size-24 bg-primary/5 rounded-full blur-2xl animate-float"></div>
                 <div className="relative z-10 flex flex-col gap-4">
                     <div className="flex items-center gap-2 text-primary animate-slide-left">

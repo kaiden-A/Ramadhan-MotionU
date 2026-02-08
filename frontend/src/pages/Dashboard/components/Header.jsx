@@ -1,11 +1,14 @@
+import { useNavigate } from "react-router-dom";
 
 
 function Header(){
 
+    const navigate = useNavigate()
+
     return(
         <>
         <header className="sticky top-0 z-50 flex items-center bg-white/90 backdrop-blur-md p-4 justify-between border-b border-gray-100">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3 hover:cursor-pointer" onClick={() => navigate('/')}>
                     {/* Logo Container */}
                     <div className="logo-container size-10 rounded-xl shadow-lg mr-3 transition-all duration-500 overflow-hidden flex items-center justify-center bg-white">
                         <img 

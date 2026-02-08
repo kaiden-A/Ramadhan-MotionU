@@ -1,20 +1,31 @@
+import { useState } from "react";
+import { useScrollAnimation } from "../../../components/Hooks/useScrollAnimation";
 import PreviousCard from "./components/PreviousCard";
 import Statistics from "./components/Statistics";
 import Todays from "./components/Todays";
 import TodaysHadiths from "./components/TodaysHadiths";
+import HadithsDetails from "./components/HadithsDetails";
 
 
 function Hadiths(){
 
+    const [openDetail , setOpenDetail] = useState(false);
+    const [details , setDetails] = useState({});
+    
+    useScrollAnimation();
+    
+
     return(
         <>
-
+            {openDetail && <HadithsDetails onClose={() => setOpenDetail(false)}/>}
             <section className="content-section">
 
-                <div className="mb-6 animate-on-scroll visible">
+                <div className="mb-6 animate-on-scroll">
 
                     <Todays/>
-                    <TodaysHadiths/>
+                    <TodaysHadiths
+                        open={() => setOpenDetail(true)}
+                    />
 
                 </div>
                 <div className="animate-on-scroll visible">
@@ -25,9 +36,9 @@ function Hadiths(){
                     </div>
                     
                     <div class="grid gap-3 sm:gap-4 hadith-previous-grid">
-                        <PreviousCard/>
-                        <PreviousCard/>
-                        <PreviousCard/>
+                        <PreviousCard
+                            open={() => setOpenDetail(true)}
+                        />
                         <PreviousCard/>
                         <PreviousCard/>
                         <PreviousCard/>

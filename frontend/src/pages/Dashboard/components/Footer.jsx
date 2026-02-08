@@ -1,12 +1,10 @@
 import { useState } from "react";
 
 
-function Footer(){
+function Footer({choose , setChoose}){
 
     const open = "text-primary active";
     const close = "text-[#617589]";
-
-    const [choose , setChoose] = useState("hadiths");
 
     return(
 

@@ -24,7 +24,7 @@ function Header(){
                     </h2>
                 </div>
                 <button onClick={() => navigate('/dashboard')} className="notify-button bg-primary text-white hover:cursor-pointer px-5 py-2.5 rounded-xl text-sm font-bold shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/30 transition-all duration-300">
-                    Join Waitlist
+                    Join
                 </button>
             </div>
         </header>
