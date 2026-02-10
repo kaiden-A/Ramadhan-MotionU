@@ -5,9 +5,16 @@ import Statistics from "./components/Statistics";
 import Todays from "./components/Todays";
 import TodaysHadiths from "./components/TodaysHadiths";
 import HadithsDetails from "./components/HadithsDetails";
-
+import { useQuery } from "@tanstack/react-query";
+import { getHadiths } from "./api/hadiths";
 
 function Hadiths(){
+
+
+    // const {data , isLoading , isError , error} = useQuery({
+    //     queryKey: ['hadiths'],
+    //     queryFn: getHadiths
+    // });
 
     const [openDetail , setOpenDetail] = useState(false);
     const [details , setDetails] = useState({});

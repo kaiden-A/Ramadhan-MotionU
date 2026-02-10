@@ -1,21 +1,33 @@
 import { BrowserRouter , Routes , Route } from "react-router-dom"
 import LandingPage from "./pages/LandingPage/LandingPage"
 import Dashboard from "./pages/Dashboard/Dashboard"
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import Auth from "./pages/Dashboard/Auth/Auth";
+
+const queryClient = new QueryClient();
 
 function App() {
 
 
   return (
-    <BrowserRouter>
+    <QueryClientProvider client={queryClient}>
 
-      <Routes>
-        <Route path="/" element={<LandingPage/>} />
+      <BrowserRouter>
+        <Routes>
 
-        <Route path="/dashboard" element={<Dashboard/>} />
+          <Route path="/" element={<LandingPage/>} />
 
-      </Routes>
+          <Route path="/dashboard" element={
+            <>
+              <Dashboard/>
+              <Auth/>
+            </>
+            
+          } />
 
-    </BrowserRouter>
+        </Routes>
+      </BrowserRouter>
+    </QueryClientProvider>
   )
 }
 

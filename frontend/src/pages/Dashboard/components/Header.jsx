@@ -1,9 +1,12 @@
 import { useNavigate } from "react-router-dom";
-
+import { useAuthStore } from "../../../../stores/authStores";
 
 function Header(){
 
     const navigate = useNavigate()
+
+    const open = useAuthStore((state) => state.openLoginModal);
+
 
     return(
         <>
@@ -25,7 +28,7 @@ function Header(){
             </div>
             
             <div className="flex items-center gap-2">
-                <button id="loginBtn" className="flex cursor-pointer items-center justify-center rounded-full size-10 bg-transparent text-[#111418] transition-colors hover:bg-gray-100">
+                <button onClick={open} id="loginBtn" className="flex cursor-pointer items-center justify-center rounded-full size-10 bg-transparent text-[#111418] transition-colors hover:bg-gray-100">
                     <span className="material-symbols-outlined">account_circle</span>
                 </button>
             </div>
