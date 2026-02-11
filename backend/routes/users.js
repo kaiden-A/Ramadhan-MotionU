@@ -5,6 +5,6 @@ import {
 
 const router = Router();
 
-router.post('/users/create/beta' , create_beta_users);
+router.post('/create/beta' , create_beta_users);
 
 export default router;

@@ -2,8 +2,7 @@ import './config/dotenv.js'
 import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
-import usersRoutes from './routes/users.js';
-import hadithsRoutes from './routes/hadiths.js'
+import routes from './routes/index.js';
 import errorHandler from './middlewares/errorHandler.js';
 
 
@@ -25,8 +24,7 @@ app.get('/' , (req , res) => {
     res.json({success : true , message : 'hello from backend'});
 })
 
-app.use('/api', hadithsRoutes )
-//app.use('/api' , usersRoutes);
+app.use('/api', routes);
 app.use(errorHandler);
 
 app.listen(PORT , "0.0.0.0", () => console.log(`APP IS RUNNING AT PORT ${PORT}`));

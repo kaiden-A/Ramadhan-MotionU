@@ -7,7 +7,7 @@ import {
 
 const router = Router();
 
-router.get('/hadiths' , get_hadiths);
-router.get('/hadiths/:id' , get_one_hadiths);
+router.get('/' , get_hadiths);
+router.get('/:id' , get_one_hadiths);
 
 export default router;
