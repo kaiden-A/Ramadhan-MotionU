@@ -10,8 +10,8 @@ function App() {
 
 
   return (
-    <QueryClientProvider client={queryClient}>
 
+    <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Routes>
 

@@ -1,6 +1,6 @@
 
 
-function Statistics(){
+function Statistics({complete , remain}){
 
     return(
         <>
@@ -9,11 +9,11 @@ function Statistics(){
                     <h3 className="text-deep-blue text-md sm:text-lg font-bold mb-3">Hadith Statistics</h3>
                     <div className="grid grid-cols-2 gap-3 sm:gap-4">
                         <div className="text-center">
-                            <p className="text-xl sm:text-2xl font-bold text-primary">12</p>
+                            <p className="text-xl sm:text-2xl font-bold text-primary">{complete}</p>
                             <p className="text-xs text-gray-500">Days Completed</p>
                         </div>
                         <div className="text-center">
-                            <p className="text-xl sm:text-2xl font-bold text-accent">18</p>
+                            <p className="text-xl sm:text-2xl font-bold text-accent">{remain}</p>
                             <p className="text-xs text-gray-500">Days Remaining</p>
                         </div>
                     </div>

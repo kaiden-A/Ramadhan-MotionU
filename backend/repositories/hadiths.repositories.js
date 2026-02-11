@@ -3,12 +3,13 @@ import pool from "../config/database.js";
 class HadithRepositories{
 
 
-    async getAllHadith(){
+    async getAllHadith(todaysDate){
 
         const result = await pool.query(
             `
             SELECT
-                hadith_id AS hadithId,
+                hadith_id AS "hadithId",
+                date_post AS "datePost",
                 source,
                 narrator,
                 text_arabic AS arab,
@@ -16,8 +17,9 @@ class HadithRepositories{
                 explanations,
                 lesson
             FROM hadiths
-            ORDER BY created_at DESC;
-            `
+            WHERE date_post < $1 ;
+            `,
+            [todaysDate]
         )
         return result.rows;
     }
@@ -35,7 +37,7 @@ class HadithRepositories{
                 explanations,
                 lesson
             FROM hadiths
-            WHERE hadith_id = $1;
+            WHERE date_post = $1;
             `,
             [day]
         )

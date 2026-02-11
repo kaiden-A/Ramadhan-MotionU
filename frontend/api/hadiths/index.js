@@ -1,9 +1,9 @@
 import axios from "axios";
 
 
-export async function handler(req , res) {
+export default async function handler(req , res) {
     
-    const backendUrl = process.env.BACKEND_URL;
+    const backendUrl = process.env.BACKEND_URL || 'http://localhost:5000';
 
 
     try{
@@ -14,7 +14,15 @@ export async function handler(req , res) {
         }
 
     }catch(err){
-        console.error(err.response?.data || err.message);
-        res.status(err.response.status).json({success : false , message :  err.response.data.message})
+        console.error("API Error:", err.message);
+
+        // 3. Robust Error Response
+        const statusCode = err.response?.status || 500;
+        const errorMessage = err.response?.data?.message || "Internal Server Error";
+
+        return res.status(statusCode).json({ 
+            success: false, 
+            message: errorMessage 
+        });
     }
 }

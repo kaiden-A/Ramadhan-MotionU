@@ -14,7 +14,7 @@ export const get_one_hadiths = catchAsync( async(req , res) => {
     const id = req.params.id;
 
     const hadith = await hadithsServices.getOne(id);
-    res.status(200).json({success : true , hadith : hadith})
+    res.status(200).json({success : true , hadith : hadith.all , today : hadith.today})
 
 
 })
