@@ -33,12 +33,12 @@ class JuzuRepositories{
                 u.user_id AS "userId",
                 u.name,
                 COUNT(*) FILTER (WHERE ujp.completed = TRUE) AS "completedJuz",
-                COUNT(j.juz_id) AS total_juz,
+                COUNT(j.juz_id) AS "totalJuz",
                 ROUND(
                     COUNT(*) FILTER (WHERE ujp.completed = TRUE) * 100.0 
                     / COUNT(j.juz_id),
                     2
-                ) AS "progressPercentage"
+                ) AS "percentage"
             FROM users u
             CROSS JOIN juz j
             LEFT JOIN user_juz_progress ujp
@@ -50,7 +50,7 @@ class JuzuRepositories{
             [userId]
         );
 
-        return result.rows;
+        return result.rows[0];
     }
 
     async updateJuzu({ juzId, userId }) {

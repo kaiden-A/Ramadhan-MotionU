@@ -6,7 +6,7 @@ import {
 
 const router = Router();
 
-router.get('/progress/:id' , get_progress);
+router.get('/progress' , get_progress);
 router.put('/:id' , update_juzu);
 
 export default router;

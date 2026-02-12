@@ -4,7 +4,6 @@ import cookie from 'cookie';
 export default async function handler(req , res){
 
     const backendUrl = process.env.BACKEND_URL ;
-    const {id} = req.query;
     console.log(req.query)
 
     const cookies = cookie.parse(req.headers.cookie || "");
@@ -15,37 +14,22 @@ export default async function handler(req , res){
 
     try{
 
-        // if(req.method === "GET"){
+        if(req.method === "GET"){
 
-        //     const backendRes = await axios.get(`${backendUrl}/api/juzu/progress/${id}` , {
-        //         headers : {
-        //             Authorization : `Bearer ${token}`
-        //         }
-        //     })
-
-        //     res.status(201).json({
-        //         success : true , 
-        //         progress : backendRes.data.progress,
-        //         summary :  backendRes.data.summary
-        //     })
-        // }
-
-        if(req.method === "PUT"){
-
-    
-            const backendRes = await axios.put(`${backendUrl}/api/juzu/${id}` , req.body , {
+            const backendRes = await axios.get(`${backendUrl}/api/juzu/progress` , {
                 headers : {
                     Authorization : `Bearer ${token}`
                 }
             })
 
-
             res.status(201).json({
-                success : true,
-                message : 'successfully update juzu'
+                success : true , 
+                progress : backendRes.data.progress,
+                summary :  backendRes.data.summary
             })
-
         }
+
+
 
 
     }catch(err){
