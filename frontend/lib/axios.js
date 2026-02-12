@@ -11,9 +11,18 @@ api.interceptors.response.use(
   (error) => {
     
     if (error.response?.status === 401) {
-      //  redirect to login
-      const {openLoginModal} = useAuthStore.getState();
-      openLoginModal();
+      
+      const errorDetail = error.response?.data.message;
+
+      if(errorDetail !== "Invalid Credentials"){
+        
+        //redirect to login
+        const {openLoginModal} = useAuthStore.getState();
+        openLoginModal();
+
+      }
+      
+
 
     }
 
