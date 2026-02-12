@@ -1,8 +1,12 @@
 import {Router} from 'express';
-import { get_progress } from '../controllers/juzu.controllers.js';
+import { 
+    get_progress, 
+    update_juzu 
+} from '../controllers/juzu.controllers.js';
 
 const router = Router();
 
-router.get('/id' , get_progress);
+router.get('/progress/:id' , get_progress);
+router.put('/:id' , update_juzu);
 
 export default router;

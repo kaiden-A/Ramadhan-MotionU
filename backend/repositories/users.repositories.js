@@ -46,6 +46,25 @@ class UsersRepositories{
 
     }
 
+    async findById({id}){
+
+        const result = await pool.query(
+            `
+            SELECT
+                user_id AS "userId",
+                name,
+                email,
+                password_hash AS "hashPassword"
+            FROM USERS
+            WHERE user_id = $1 
+            `,
+            [id]
+        );
+
+        return  result.rows[0];
+
+    }
+
     async findAllBetaUsers(){
 
         const result = pool.query(

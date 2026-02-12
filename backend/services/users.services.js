@@ -14,6 +14,18 @@ class UserService{
         return;
 
     }
+
+    async findById(id){
+
+        const user = await usersRepositories.findById({id});
+
+        if(!user){
+            throw new AppError('User Doesnt Exist' , 404);
+        }
+
+        return user;
+
+    }
     
 }
 

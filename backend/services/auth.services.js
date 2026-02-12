@@ -29,6 +29,8 @@ class AuthServices{
 
     }
 
+
+
     async signup({name , email , password}){
 
         const hashPassword = await this.#hashedPassword(password);
@@ -50,6 +52,7 @@ class AuthServices{
         return token;
 
     }
+
 
     async #hashedPassword(pasword){
     

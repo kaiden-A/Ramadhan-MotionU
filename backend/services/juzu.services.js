@@ -19,6 +19,21 @@ class JuzuServices{
 
     }
 
+    async updateJuzu({userId , juzuId}){
+
+        const updtJuzu = await juzuRepositories.updateJuzu({
+            userId ,  
+            juzId : juzuId
+        });
+
+        if(!updtJuzu){
+            throw new AppError('Fail Updating Juzu' , 400);
+        }
+
+        return;
+
+    }
+
 }
 
 export default new JuzuServices;

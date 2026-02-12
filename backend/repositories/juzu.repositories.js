@@ -53,6 +53,24 @@ class JuzuRepositories{
         return result.rows;
     }
 
+    async updateJuzu({ juzId, userId }) {
+
+        const result = await pool.query(
+            `
+            INSERT INTO user_juz_progress (user_id, juz_id, completed, completed_at)
+            VALUES ($1, $2, TRUE, NOW())
+            ON CONFLICT (user_id, juz_id)
+            DO UPDATE SET
+                completed = TRUE,
+                completed_at = NOW()
+            `,
+            [userId, juzId]
+        );
+
+        return result.rowCount > 0;
+    }
+
+
 }
 
 export default new JuzuRepositories;
