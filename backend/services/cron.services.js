@@ -26,11 +26,11 @@ class CronServices {
             throw new AppError('Fail Retrieve User' , 404);
         }
 
-        // await sendEmail({
-        //     to: 'amsyarnaji@gmail.com',
-        //     subject: "Welcome To Month of Ramadhan",
-        //     html: this.#welcomeEventContent(),
-        // });
+        await sendEmail({
+            to: 'Adam.z@student.iium.edu.my',
+            subject: "Welcome To Month of Ramadhan",
+            html: this.#welcomeEventContent(),
+        });
 
         // for (const user of betaUsers) {
         //     await sendEmail({
