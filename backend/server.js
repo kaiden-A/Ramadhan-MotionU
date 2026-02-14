@@ -4,6 +4,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 import routes from './routes/index.js';
 import errorHandler from './middlewares/errorHandler.js';
+import sendEmail from './utils/sendEmail.js';
 
 
 const app = express();
@@ -22,6 +23,17 @@ const PORT = process.env.PORT || 5000;
 
 app.get('/' , (req , res) => {
     res.json({success : true , message : 'hello from backend'});
+})
+
+app.get('/testing-email' , async (req , res) => {
+
+    await sendEmail({
+        to : 'amirikhwanfaisal@gmail.com',
+        subject : 'Testing Sending Email',
+        html : '<p>Its Working</p>'
+    })
+
+    res.json({succes : true , message : 'working'})
 })
 
 app.use('/api', routes);

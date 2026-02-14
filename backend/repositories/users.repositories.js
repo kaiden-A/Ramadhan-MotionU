@@ -46,6 +46,22 @@ class UsersRepositories{
 
     }
 
+    async getAll(){
+
+        const result = await pool.query(
+            `
+            SELECT
+                user_id AS "userId",
+                name,
+                email
+            FROM USERS
+            `
+        );
+
+        return result.rows;
+
+    }
+
     async findById({id}){
 
         const result = await pool.query(
@@ -67,8 +83,11 @@ class UsersRepositories{
 
     async findAllBetaUsers(){
 
-        const result = pool.query(
-            `SELECT email , invite_email FROM BETA_USERS`
+        const result = await pool.query(
+            `SELECT 
+                email , 
+                invite_email 
+            FROM BETA_USERS`
         );
 
         return result.rows;
