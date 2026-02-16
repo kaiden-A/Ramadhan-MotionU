@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useScrollAnimation } from "../../../components/Hooks/useScrollAnimation";
 import JuzuCard from "./components/JuzuCard";
 import ProgressSummary from "./components/ProgressSummary";
-import Statistics from "./components/statistics";
+import Statistics from "./components/Statistics";
 import { getProgress } from "./api/juzu";
 import LoadingSpinner from "../../../components/reusable/Loading";
 import { useState , useMemo } from "react";
