@@ -14,7 +14,7 @@ export default async function handler(req , res){
             
             res.setHeader(
                 "Set-Cookie",
-                `jwt=${token}; HttpOnly; Path=/; Max-Age=86400; SameSite=Lax`
+                `jwt=${token}; HttpOnly; Secured; Path=/; Max-Age=86400; SameSite=None; Partitioned`
             );
 
             res.status(201).json({success : true , message : backendRes.data.message});
