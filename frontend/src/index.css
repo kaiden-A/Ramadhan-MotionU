@@ -20,7 +20,7 @@
   --radius-xl: 0.75rem;
   --radius-2xl: 1rem;
   --radius-3xl: 1.5rem;
-  --radius-full: 9999px;
+  --radius-full: 9999px; 
 
   /* --- Animations (Renamed to --animate-* for v4 auto-generation) --- */
   --animate-float: float 6s ease-in-out infinite;
