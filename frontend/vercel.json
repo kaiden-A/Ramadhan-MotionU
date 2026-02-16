@@ -7,10 +7,6 @@
         {
             "path": "/api/cron/daily-reminder",
             "schedule": "0 21 * * *"
-        },
-        {
-            "path" : "/api/cron/welcoming-regards",
-            "schedule" : "0 21 * * *"
         }
     ]
 }
