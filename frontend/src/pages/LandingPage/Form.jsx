@@ -1,36 +1,38 @@
 import { useState } from "react";
 import { createBetaUsers } from "./api/betaUsers";
 import Notifications from "../../components/reusable/Notifications";
-
+import { useNavigate} from 'react-router-dom'
 function Form(){
 
     const [email , setEmail] = useState("");
     const [success , setSuccess] = useState(false);
 
-    const sendForm = async (e) => {
+    const navigate = useNavigate();
 
-        e.preventDefault();
+    // const sendForm = async (e) => {
 
-        try{
+    //     e.preventDefault();
 
-            const res = await createBetaUsers(email);
+    //     try{
 
-            console.log(res);
-            if(res.data.success){
-                setSuccess(true);
-            }
+    //         const res = await createBetaUsers(email);
 
-        }catch(err){
-            console.error(err.response?.data || err.message);
-        }
+    //         console.log(res);
+    //         if(res.data.success){
+    //             setSuccess(true);
+    //         }
 
-    }
+    //     }catch(err){
+    //         console.error(err.response?.data || err.message);
+    //     }
+
+    // }
 
     return(
         <>
             {success && <Notifications success={true} message={'successfully send email'} onClose={() => setSuccess(false)} />}
-            <form className="flex flex-col gap-4" onSubmit={sendForm}>
-              <div className="flex w-full items-stretch rounded-2xl overflow-hidden border border-blue-100 bg-white shadow-lg shadow-blue-200/40 transition-all focus-within:ring-2 focus-within:ring-primary/20 hover:shadow-xl">
+            <form className="flex flex-col gap-4 mb-6" >
+              {/* <div className="flex w-full items-stretch rounded-2xl overflow-hidden border border-blue-100 bg-white shadow-lg shadow-blue-200/40 transition-all focus-within:ring-2 focus-within:ring-primary/20 hover:shadow-xl">
                 <div className="text-slate-400 flex items-center justify-center pl-4">
                   <span className="material-symbols-outlined text-[20px]">mail</span>
                 </div>
@@ -41,12 +43,13 @@ function Form(){
                   onChange={(e) => setEmail(e.target.value)}
                   required
                 />
-              </div>
+              </div> */}
               <button 
-                type="submit" 
+                type="button"
+                onClick={() => navigate('/dashboard') } 
                 className="w-full bg-primary hover:bg-blue-600 text-white font-bold py-4 rounded-2xl transition-all shadow-xl shadow-primary/30 hover:shadow-primary/50 hover:-translate-y-0.5"
               >
-                Notify me when we launch
+                Enter Event
               </button>
             </form>
         

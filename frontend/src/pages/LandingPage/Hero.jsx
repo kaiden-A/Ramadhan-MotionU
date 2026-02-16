@@ -15,8 +15,8 @@ function Hero() {
         
         {/* Text Side: Replaces .hero-text */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left animate-on-scroll">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20 text-sm font-bold mb-6 uppercase tracking-wider animate-slide-up">
-            Coming Soon
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-emerald-500/10 text-emerald-500 border border-emerald-500/20 text-sm font-bold mb-6 uppercase tracking-wider animate-slide-up">
+            Opened now
           </div>
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight tracking-tight mb-4 text-deep-blue">
