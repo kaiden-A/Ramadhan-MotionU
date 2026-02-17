@@ -27,7 +27,7 @@
     },
     {
       "path": "/api/cron/welcoming-regards",
-      "schedule": "30 11 * * *"
+      "schedule": "30 12 * * *"
     }
   ]
 }
