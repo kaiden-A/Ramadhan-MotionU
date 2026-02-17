@@ -27,7 +27,7 @@ class CronServices {
         }
 
         await sendEmail({
-            to: 'Adam.z@student.iium.edu.my',
+            to: 'amirulikhwanfaisal@gmail.com',
             subject: "Welcome To Month of Ramadhan",
             html: this.#welcomeEventContent(),
         });

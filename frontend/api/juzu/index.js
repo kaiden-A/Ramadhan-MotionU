@@ -29,6 +29,18 @@ export default async function handler(req , res){
             })
         }
 
+        if(req.method === "PUT"){
+
+            const backendRes = await axios.put(`${backendUrl}/api/juzu/me`, req.body , {
+                headers : {
+                    Authorization : `Bearer ${token}`
+                }
+            })
+
+            res.status(204).json({success : true})
+
+        }
+
 
 
 

@@ -7,9 +7,9 @@ export const getProgress = async () => {
     return res.data;
 }
 
-export const updateJuzu = async(userId , juzuId) => {
+export const updateJuzu = async(juzuId) => {
 
-    const res = await api.put(`/juzu/${userId}` , {
+    const res = await api.put(`/juzu` , {
         juzuId
     });
 

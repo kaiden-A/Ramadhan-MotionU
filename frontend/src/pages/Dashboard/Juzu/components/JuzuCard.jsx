@@ -37,6 +37,7 @@ function JuzuCard({ number, isFinished, onToggle }) {
       {/* Action Button */}
       <button 
         onClick={onToggle}
+        disabled={isFinished}
         className={`w-full py-2 rounded-lg text-[11px] font-bold uppercase hover:cursor-pointer transition-colors ${
           isFinished 
             ? "bg-primary/10 text-primary" 
