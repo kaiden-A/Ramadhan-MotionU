@@ -87,8 +87,8 @@ function Juzu() {
                 </div>
 
                 <ProgressSummary
-                    percentage={data.summary.percentage}
-                    completed={data.summary.completedJuz}
+                    percentage={data?.summary?.percentage}
+                    completed={data?.summary?.completedJuz}
                 />
             </div>
 
