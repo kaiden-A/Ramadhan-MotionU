@@ -5,7 +5,7 @@ import catchAsync from "../utils/catchAsync.js";
 export const get_progress = catchAsync( async(req , res) => {
 
     const user = req.user;
-
+    console.log(user);
     const data = await juzuServices.getUserJuzu(user.userId);
     res.status(200).json({success : true , summary : data.summary , progress : data.juzuProgress})
 
@@ -15,6 +15,8 @@ export const update_juzu = catchAsync( async (req , res) => {
 
     const user = req.user;
     const {juzuId} = req.body;
+
+    console.log(user);
 
     await juzuServices.updateJuzu({
         userId : user.userId,

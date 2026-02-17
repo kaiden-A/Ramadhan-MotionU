@@ -4,7 +4,7 @@ import cookie from 'cookie';
 export default async function handler(req , res){
 
     const backendUrl = process.env.BACKEND_URL ;
-    console.log(req.query)
+
 
     const cookies = cookie.parse(req.headers.cookie || "");
     const token = cookies.jwt;
