@@ -128,8 +128,8 @@ function Juzu() {
             </div>
 
             <Statistics
-                completed={data.summary.completedJuz}
-                noncompleted={data.summary.totalJuz - data.summary.completedJuz}
+                completed={data?.summary?.completedJuz}
+                noncompleted={data?.summary?.totalJuz - data?.summary?.completedJuz}
             />
         </section>
     );
