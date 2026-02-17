@@ -2,36 +2,35 @@ import { useState } from "react";
 import { login } from "../api/auth";
 import { useAuthStore } from "../../../../../stores/authStores";
 import LoadingSpinner from "../../../../components/reusable/Loading";
+import { useQueryClient } from "@tanstack/react-query";
 
 function Login({setAuth}){
 
     const [email , setEmail] = useState("");
     const [password , setPassword] = useState("");
     const [send , setSend] = useState(false);
+    const queryClient = useQueryClient();
 
     const close = useAuthStore((state) => state.closeLoginModal);
 
     const sendForm = async (e) => {
-
         e.preventDefault();
         setSend(true);
-
-        try{
-            
-            const res = await login({
-                email , password
-            })
+        try {
+            const res = await login({ email, password });
 
             if(res.success){
+                // 3. WIPE THE CACHE HERE
+                await queryClient.invalidateQueries({ queryKey: ['juzu'] });
+                // Or use queryClient.clear() to wipe everything
+                
                 close();
             }
-
-        }catch(err){
+        } catch(err) {
             console.error(err);
-        }finally{
+        } finally {
             setSend(false);
         }
-
     }
 
     return(

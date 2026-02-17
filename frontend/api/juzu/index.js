@@ -5,6 +5,9 @@ export default async function handler(req , res){
 
     const backendUrl = process.env.BACKEND_URL ;
 
+    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
 
     const cookies = cookie.parse(req.headers.cookie || "");
     const token = cookies.jwt;
