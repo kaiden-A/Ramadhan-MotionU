@@ -11,11 +11,8 @@ class HadithServices{
         const hadith = await hadithsRepositories.getAllHadith(todaysDate);
         const todayHadith = await hadithsRepositories.getOneHadith(todaysDate);
 
-        if(hadith.length === 0){
-            throw new AppError('Couldnt Get Hadis' , 404);
-        }
 
-        return {all : hadith , today : todayHadith};
+        return {all : hadith || [], today : todayHadith};
 
     }
 
