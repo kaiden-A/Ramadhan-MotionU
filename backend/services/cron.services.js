@@ -8,13 +8,19 @@ class CronServices {
 
         const users = await usersRepositories.getAll();
 
-        for (const user of users) {
-            await sendEmail({
-                to: user.email,
-                subject: "Daily Reminder",
-                html: this.#content(user.name),
-            });
-        }
+        // for (const user of users) {
+        //     await sendEmail({
+        //         to: user.email,
+        //         subject: "Daily Reminder",
+        //         html: this.#content(user.name),
+        //     });
+        // }
+
+        await sendEmail({
+            to: "amirikhwanfaisal@gmail.com",
+            subject: "Daily Reminder",
+            html: this.#content("Kaiden-A"),
+        });
     }
 
     async welcomingEvent(){
