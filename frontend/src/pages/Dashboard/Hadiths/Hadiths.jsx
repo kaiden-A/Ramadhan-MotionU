@@ -66,17 +66,24 @@ function Hadiths(){
                     </div>
                     
                     <div class="grid gap-3 sm:gap-4 hadith-previous-grid">
-
-                        {
-                            previousHadiths.map(h => 
+                        {previousHadiths.length > 0 ? (
+                            previousHadiths.map(h => (
                                 <PreviousCard
                                     key={h.hadithId}
                                     hadiths={h}
-                                    open={() => { setOpenDetail(true) ; setDetails(h) }}
+                                    open={() => { 
+                                        setOpenDetail(true); 
+                                        setDetails(h); 
+                                    }}
                                 />
-                            )
-                        }
-                        
+                            ))
+                        ) : (
+                            <div className="flex flex-col items-center justify-center p-8 border-2 border-dashed border-gray-200 rounded-lg bg-gray-50">
+                                <p className="text-gray-500 font-medium">No previous Hadiths found</p>
+                                <p className="text-gray-400 text-sm">Hadiths will appear here once they are added.</p>
+                            </div>
+                        )}
+                                                
                     </div>
 
                     <Statistics
