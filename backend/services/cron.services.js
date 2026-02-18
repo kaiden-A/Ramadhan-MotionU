@@ -8,19 +8,13 @@ class CronServices {
 
         const users = await usersRepositories.getAll();
 
-        // for (const user of users) {
-        //     await sendEmail({
-        //         to: user.email,
-        //         subject: "Daily Reminder",
-        //         html: this.#content(user.name),
-        //     });
-        // }
-
-        await sendEmail({
-            to: "amirikhwanfaisal@gmail.com",
-            subject: "Daily Reminder",
-            html: this.#content("Kaiden-A"),
-        });
+        for (const user of users) {
+            await sendEmail({
+                to: user.email,
+                subject: "Daily Reminder",
+                html: this.#content(user.name),
+            });
+        }
     }
 
     async welcomingEvent(){
@@ -32,19 +26,14 @@ class CronServices {
             throw new AppError('Fail Retrieve User' , 404);
         }
 
-        await sendEmail({
-            to: 'amirulikhwanfaisal@gmail.com',
-            subject: "Welcome To Month of Ramadhan",
-            html: this.#welcomeEventContent(),
-        });
 
-        // for (const user of betaUsers) {
-        //     await sendEmail({
-        //         to: user.email,
-        //         subject: "Daily Reminder",
-        //         html: this.welcomingEvent(),
-        //     });
-        // }
+        for (const user of betaUsers) {
+            await sendEmail({
+                to: user.email,
+                subject: "Daily Reminder",
+                html: this.welcomingEvent(),
+            });
+        }
 
 
     }
