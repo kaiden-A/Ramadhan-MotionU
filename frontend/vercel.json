@@ -23,11 +23,7 @@
   "crons": [
     {
       "path": "/api/cron/daily-reminder",
-      "schedule": "0 21 * * *"
-    },
-    {
-      "path": "/api/cron/welcoming-regards",
-      "schedule": "30 11 * * *"
+      "schedule": "0 0 * * *"
     }
   ]
 }
