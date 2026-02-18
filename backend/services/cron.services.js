@@ -30,8 +30,8 @@ class CronServices {
         for (const user of betaUsers) {
             await sendEmail({
                 to: user.email,
-                subject: "Daily Reminder",
-                html: this.welcomingEvent(),
+                subject: "Welcome to Month of Ramadhan",
+                html: this.#welcomeEventContent(),
             });
         }
 
