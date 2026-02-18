@@ -50,7 +50,7 @@ function Hadiths(){
                 <div className="mb-6 animate-on-scroll">
 
                     <Todays
-                        today={data.hadiths.today.hadithId}
+                        today={data.hadiths.today.hadithid}
                     />
                     <TodaysHadiths
                         hadiths={data.hadiths.today}
