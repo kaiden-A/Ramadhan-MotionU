@@ -7,11 +7,20 @@ class CronServices {
     async dailyReminder() {
 
         const users = await usersRepositories.getAll();
+        const subjects = [
+            "Have you read today?",
+            "Just a small moment today",
+            "Before the day ends",
+            "One ayah is enough today"
+        ];
+
+        const subject = subjects[Math.floor(Math.random() * subjects.length)];
+
 
         for (const user of users) {
             await sendEmail({
                 to: user.email,
-                subject: "Daily Reminder",
+                subject: subject,
                 html: this.#content(user.name),
             });
         }
