@@ -16,12 +16,11 @@ class CronServices {
 
         const subject = subjects[Math.floor(Math.random() * subjects.length)];
 
-
         for (const user of users) {
             await sendEmail({
                 to: user.email,
-                subject: subject,
-                html: this.#content(user.name),
+                subject: "Time to Refocus and Multiply our Ibadah",
+                html: this.#specialEmail(user.name),
             });
         }
     }
@@ -109,6 +108,83 @@ class CronServices {
 
         </table>
         `;
+
+        return template;
+    }
+
+
+    #specialEmail(name) {
+        const template = `
+                <table width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td>
+                        <table width="100%" cellpadding="0" cellspacing="0">
+                            <tr>
+                            <td style="font-size:16px; color:#333333; line-height:1.6;">
+
+                                <p><strong>Assalamualaikum ${name},</strong></p>
+
+                                <p>
+                                Alhamdulillah, today we have reached the
+                                <strong>10th day of the blessed month of Ramadan</strong> —
+                                a meaningful milestone in this sacred journey.
+                                </p>
+
+                                <p>
+                                Ramadan is not only about refraining from food and drink, but about
+                                <strong>refocusing our hearts, multiplying our acts of worship,
+                                and striving to become the best version of ourselves</strong>.
+                                This is the perfect time for reflection and self-improvement.
+                                </p>
+
+                                <p>Let us take this opportunity to:</p>
+
+                                <ul style="padding-left:20px;">
+                                <li>Increase our prayers and supplications</li>
+                                <li>Strengthen our connection with the Qur’an</li>
+                                <li>Guard our character and speech</li>
+                                <li>Perform every deed with sincerity</li>
+                                </ul>
+
+                                <p>
+                                May the remaining days of Ramadan become a turning point for us all,
+                                bringing us closer to Allah and strengthening our taqwa.
+                                </p>
+
+                                <p>
+                                May Allah accept our deeds and grant us consistency and strength
+                                throughout this blessed month.
+                                </p>
+
+                                <div style="text-align:center; margin:30px 0;">
+                                <a
+                                    href="https://ramadhan-with-motionu.vercel.app/"
+                                    style="
+                                    background-color:#34B3E4;
+                                    color:#ffffff;
+                                    text-decoration:none;
+                                    padding:14px 24px;
+                                    border-radius:6px;
+                                    font-size:16px;
+                                    display:inline-block;
+                                    "
+                                >
+                                    Read One Hadis Now
+                                </a>
+                                </div>
+
+                                <p style="font-size:14px; color:#555555;">
+                                Barakallahu feek,<br />
+                                <strong>The Motion-U Team</strong>
+                                </p>
+
+                            </td>
+                            </tr>
+                        </table>
+                        </td>
+                    </tr>
+                </table>
+            `;
 
         return template;
     }
