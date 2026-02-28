@@ -19,8 +19,8 @@ class CronServices {
         for (const user of users) {
             await sendEmail({
                 to: user.email,
-                subject: "Time to Refocus and Multiply our Ibadah",
-                html: this.#specialEmail(user.name),
+                subject: subject,
+                html: this.#content(user.name),
             });
         }
     }
