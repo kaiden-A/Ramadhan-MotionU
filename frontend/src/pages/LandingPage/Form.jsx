@@ -1,13 +1,11 @@
 import { useState } from "react";
 import { createBetaUsers } from "./api/betaUsers";
 import Notifications from "../../components/reusable/Notifications";
-import { useNavigate} from 'react-router-dom'
 function Form(){
 
     const [email , setEmail] = useState("");
     const [success , setSuccess] = useState(false);
 
-    const navigate = useNavigate();
 
     // const sendForm = async (e) => {
 
@@ -46,7 +44,6 @@ function Form(){
               </div> */}
               <button 
                 type="button"
-                onClick={() => navigate('/dashboard') } 
                 className="w-full bg-primary hover:bg-blue-600 text-white font-bold py-4 rounded-2xl transition-all shadow-xl shadow-primary/30 hover:shadow-primary/50 hover:-translate-y-0.5"
               >
                 Enter Event

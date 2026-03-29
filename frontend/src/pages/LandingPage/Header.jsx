@@ -1,9 +1,8 @@
-import { useNavigate } from "react-router-dom";
 
 
 function Header(){
 
-    const navigate = useNavigate();
+    
 
     return(
         <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-blue-100">
@@ -23,7 +22,7 @@ function Header(){
                         Motion-U
                     </h2>
                 </div>
-                <button onClick={() => navigate('/dashboard')} className="notify-button bg-primary text-white hover:cursor-pointer px-5 py-2.5 rounded-xl text-sm font-bold shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/30 transition-all duration-300">
+                <button  className="notify-button bg-primary text-white hover:cursor-pointer px-5 py-2.5 rounded-xl text-sm font-bold shadow-md shadow-primary/20 hover:shadow-lg hover:shadow-primary/30 transition-all duration-300">
                     Enter Event
                 </button>
             </div>
